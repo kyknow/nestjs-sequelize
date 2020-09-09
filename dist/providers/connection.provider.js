@@ -29,7 +29,6 @@ function createConnection() {
                     map.set(options.connName, new sequelize_typescript_1.Sequelize(options));
                 }
             }
-            console.log('map: ', map);
             return map;
         },
         inject: [database_constants_1.DATABASE_MODULE_OPTIONS]

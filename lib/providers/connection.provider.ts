@@ -27,7 +27,6 @@ export function createConnection() {
           map.set(options.connName, new Sequelize(options))
         }
       }
-      console.log('map: ', map);
       return map
     },
     inject: [DATABASE_MODULE_OPTIONS]
