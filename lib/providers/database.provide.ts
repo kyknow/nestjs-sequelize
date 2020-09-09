@@ -1,11 +1,12 @@
-import { CONNECTION_PROVIDER, SEQUELIZE_PROVIDER } from '../database.constants'
+import { CONNECTION_PROVIDER } from '../database.constants'
 import { Sequelize } from 'sequelize-typescript'
-import { getRepositoryToken } from '../commons/database.utils'
+import { getRepositoryToken, getConnectionToken } from '../commons/database.utils'
 
-export const createDatebaseProviders = (entities: any, sync: boolean = false) => {
+export const createDatebaseProviders = (entities: any, connection: string, sync = false) => {
   const provider = {
-    provide: SEQUELIZE_PROVIDER,
-    useFactory: async (sequelize: Sequelize) => {
+    provide: getConnectionToken(connection),
+    useFactory: async (conns: Map<string, Sequelize>) => {
+      const sequelize: Sequelize = conns.get(connection)
       sequelize.addModels(entities)
       if (sync) {
         sequelize.sync()

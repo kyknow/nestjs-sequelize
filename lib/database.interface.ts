@@ -3,6 +3,7 @@ import { ISequelizeConfig } from 'sequelize-typescript/lib/interfaces/ISequelize
 
 // tslint:disable-next-line:no-empty-interface
 export interface DatabaseModuleOptions extends ISequelizeConfig {
+  connName: string,
 }
 
 export interface DatabaseModuleAsyncOptions

@@ -19,8 +19,8 @@ export class DatabaseModule {
     }
   }
 
-  static forFeature(entities: any, sync?: boolean): DynamicModule {
-    const databaseProvider = createDatebaseProviders(entities, sync)
+  static forFeature(entities: any, connection: string, sync?: boolean,): DynamicModule {
+    const databaseProvider = createDatebaseProviders(entities, connection, sync)
     const modelProviders = createModelProviders(entities)
     return {
       module: DatabaseModule,

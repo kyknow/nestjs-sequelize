@@ -1,12 +1,11 @@
 
 import { Inject } from '@nestjs/common'
-import { getRepositoryToken} from './database.utils'
-import { SEQUELIZE_PROVIDER } from '../';
+import { getRepositoryToken, getConnectionToken} from './database.utils'
 
 export const InjectRepository = (entity) => {
   return Inject(getRepositoryToken(entity))
 }
 
-export const InjectSequelize = () => {
-  return Inject(SEQUELIZE_PROVIDER)
+export const InjectSequelize = (conn: string) => {
+  return Inject(getConnectionToken(conn))
 }

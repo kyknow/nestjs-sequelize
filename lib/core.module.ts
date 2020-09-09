@@ -1,6 +1,5 @@
 import { Module, DynamicModule, Global } from '@nestjs/common'
 import { DatabaseModuleOptions, DatabaseModuleAsyncOptions } from './database.interface'
-import { DatabaseModule } from '.'
 import { DATABASE_MODULE_OPTIONS } from './database.constants'
 import { createConnection, createAsyncConnection } from './providers'
 
