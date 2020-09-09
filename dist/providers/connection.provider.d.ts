@@ -2,7 +2,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { DatabaseModuleAsyncOptions, DatabaseModuleOptions } from '../database.interface';
 export declare function createConnection(): {
     provide: string;
-    useFactory: (options: DatabaseModuleOptions) => Sequelize;
+    useFactory: (options: DatabaseModuleOptions | DatabaseModuleOptions[]) => Map<string, Sequelize>;
     inject: string[];
 };
 export declare const createAsyncConnection: (options: DatabaseModuleAsyncOptions) => {

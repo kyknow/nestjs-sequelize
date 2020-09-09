@@ -23,8 +23,8 @@ let DatabaseModule = DatabaseModule_1 = class DatabaseModule {
             imports: [core_module_1.DatabaseCoreModule.forRootAsync(options)],
         };
     }
-    static forFeature(entities, sync) {
-        const databaseProvider = providers_1.createDatebaseProviders(entities, sync);
+    static forFeature(entities, connection, sync) {
+        const databaseProvider = providers_1.createDatebaseProviders(entities, connection, sync);
         const modelProviders = providers_1.createModelProviders(entities);
         return {
             module: DatabaseModule_1,

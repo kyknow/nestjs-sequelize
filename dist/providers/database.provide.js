@@ -10,10 +10,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_constants_1 = require("../database.constants");
 const database_utils_1 = require("../commons/database.utils");
-exports.createDatebaseProviders = (entities, sync = false) => {
+exports.createDatebaseProviders = (entities, connection, sync = false) => {
     const provider = {
-        provide: database_constants_1.SEQUELIZE_PROVIDER,
-        useFactory: (sequelize) => __awaiter(this, void 0, void 0, function* () {
+        provide: database_utils_1.getConnectionToken(connection),
+        useFactory: (conns) => __awaiter(this, void 0, void 0, function* () {
+            const sequelize = conns.get(connection);
             sequelize.addModels(entities);
             if (sync) {
                 sequelize.sync();

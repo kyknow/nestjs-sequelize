@@ -3,5 +3,5 @@ import { DatabaseModuleOptions, DatabaseModuleAsyncOptions } from './database.in
 export declare class DatabaseModule {
     static forRoot(options: DatabaseModuleOptions): DynamicModule;
     static forRootAsync(options: DatabaseModuleAsyncOptions): DynamicModule;
-    static forFeature(entities: any, sync?: boolean): DynamicModule;
+    static forFeature(entities: any, connection: string, sync?: boolean): DynamicModule;
 }
