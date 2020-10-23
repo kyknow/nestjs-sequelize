@@ -13,3 +13,8 @@ export interface DatabaseModuleAsyncOptions
     | Promise<ISequelizeConfig>
   inject?: any[]
 }
+
+export interface PageList<T> {
+  count: number
+  rows: T[]
+}
